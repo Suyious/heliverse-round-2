@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Alata', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    width: 100%;
+    height: 100%;
+    background-color: #FEFFEF;
+}
+
+#cursor {
+    height: 15px;
+    width: 15px;
+    background: #fff;
+    border-radius: 50%;
+    position: fixed;
+    mix-blend-mode: difference;
+    z-index: 100;
+    pointer-events: none;
+}
+
+#nav {
+    height: 6em;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.nav_inner {
+    width: 1800px;
+    height: 100%;
+    margin: auto;
+    max-width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_inner .left img{
+    width: 8em;
+    cursor: pointer;
+}
+
+.nav_inner .middle {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav_inner .middle li {
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 0.5em;
+}
+
+.nav_inner .middle li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #07050f;
+    transition: width .3s ease-in-out;
+}
+
+.nav_inner .middle li:hover::after {
+    width: 100%;
+}
+
+.nav_inner .right_button {
+    outline: none;
+    border: 1px solid #000;
+    font-size: 1em;
+    padding: 1em 3.5em 1.1em;
+    border-radius: 90px;
+    background: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav_inner .right_button:hover {
+    background: #07050f;
+    color: #fff;
+}
+
+#hero {
+    background: url(./assets/bg.jpg);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 20em;
+}
+
+#hero h3 {
+    font-family: 'Alata', sans-serif;
+    font-size: 5.625rem;
+    line-height: .9em;
+    letter-spacing: -.03em;
+    font-weight: 400;
+    text-align: center;
+}
+
+.big_text_main {
+    display: flex;
+    margin: auto;
+    padding: 30px 60px 222px;
+}
+
+.big_text_wrapper {
+    position: relative;
+    width: 16%;
+}
+
+.floating_text {
+    position: absolute;
+    padding: 0.7em 1.5em;
+    background-image: linear-gradient(90deg, #B1F8F5 0%, #F0C0E5 100%);
+    border-radius: 90px;
+    width: 10em;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.floating_text.up {
+    top: 2em;
+    left: -3em;
+    transform: rotate(30deg);
+}
+
+.floating_text.down {
+    bottom: 2em;
+    left: -2em;
+    transform: rotate(-30deg);
+}
+
+.big_text {
+    font-size: 21vw;
+    font-weight: 700;
+    line-height: 1;
+    background: #100647;
+    background: linear-gradient(to top right, #100647 0%, #F62358 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+section.marquee {
+    background: #0c0917;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 30px 0 29px;;
+    text-wrap: nowrap;
+    overflow: hidden;
+}
+
+.marquee_text {
+    display: flex;
+}
+
+.marquee_wrapper {
+    display: flex;
+    gap: 2em;
+}
+
+.marquee_wrapper.width {
+    padding-right: 2em;
+}
+
+section.marquee span {
+    color: #fff;
+    font-family: alata,Sans-serif;
+    font-size: 1.375rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 2.2px
+}
+
+.dynamic {
+    height: 100vh;
+    padding-top: 170px;
+    overflow: hidden;
+    display: flex;
+    gap: 4em;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dynamic_circle_wrapper {
+    position: relative;
+    display: inline-block;
+}
+.dynamic_circle {
+    width: 4em;;
+    height: 4em;
+    border-radius: 50%;
+    background-color: #0c0917;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dynamic_circle_wrapper svg {
+    fill: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dynamic_text {
+    color: #fff;
+    mix-blend-mode: difference;
+}
