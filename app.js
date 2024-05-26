@@ -3,6 +3,7 @@ gsap.registerPlugin(ScrollTrigger);
 const main = document.querySelector("#main")
 const cursor = document.querySelector("#cursor")
 
+// CURSOR
 main.addEventListener("mousemove", function(e) {
     gsap.to(cursor, {
         x: e.x - 0.5 * cursor.clientHeight,
@@ -11,6 +12,7 @@ main.addEventListener("mousemove", function(e) {
     })
 })
 
+// NAVBAR
 const navbar = document.querySelector('#nav');
 const hero = document.querySelector('#hero');
 
@@ -27,6 +29,61 @@ gsap.to(navbar, {
     }
 })
 
+// NAV OVERLAY
+gsap.set(".nav_overlay", {
+    visibility: "hidden",
+    autoAlpha: 0,
+})
+
+const hamburger = document.querySelector(".hamburger_menu");
+
+hamburger.onclick = function() {
+    const tl = gsap.timeline();
+
+    tl.to(".nav_overlay", {
+        visibility: "visible",
+        autoAlpha: 1,
+    }).fromTo(".nav_overlay .top", {
+        autoAlpha: 0,
+    }, {
+        autoAlpha: 1,
+        stagger: 0.2
+    }).fromTo(".nav_overlay .middle li", {
+        autoAlpha: 0,
+    }, {
+        autoAlpha: 1,
+        stagger: 0.2
+    }, "<0.2").fromTo(".nav_overlay .bottom", {
+        autoAlpha: 0,
+    }, {
+        autoAlpha: 1,
+    })
+
+    const cancel = document.querySelector(".menu_cancel");
+    cancel.onclick = function () {
+        tl.fromTo(".nav_overlay .bottom", {
+            autoAlpha: 1
+        }, {
+            autoAlpha: 0
+        }).fromTo(".nav_overlay .middle li", {
+            autoAlpha: 1
+        }, {
+            autoAlpha: 0,
+            stagger: -0.2
+        }, "<0.2").fromTo(".nav_overlay .top", {
+            autoAlpha: 1,
+        }, {
+            autoAlpha: 0,
+            stagger: 0.2
+        }).to(".nav_overlay", {
+            autoAlpha: 0,
+            visibility: "hidden",
+            duration: 0.3
+        })
+    }
+}
+
+// HERO
 gsap.from(".big_text_wrapper.up", {
     y: 100,
     repeat: -1,
@@ -43,6 +100,7 @@ gsap.to(".big_text_wrapper.down", {
     ease: "power3.inOut"
 })
 
+// MARQUEE
 const marquee = document.querySelector(".marquee_wrapper.width");
 
 gsap.to(".marquee_text", {
